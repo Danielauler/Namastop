@@ -1,0 +1,55 @@
+import mongoose from 'mongoose';
+import thankSchema from '../../models/thanks';
+
+const Thank = mongoose.model('Thank', thankSchema);
+
+// add new thanks to the database
+export function addNewThank(req, res) {
+  const newThank = new Thank(req.body);
+  newThank.save((error, thank) => {
+    if (error) { res.json(error); }
+    const reply = {
+      text: `Belo agradecimento ${req.body.user_name}. Lembre-se, em um coração onde mora a gratidão, também habitará sempre a felicidade.`,
+    //   attachments: [
+    //     {
+    //       title: '1) /meetupbot-show <location> & <interest>',
+    //       text: 'use this to find meetup-events based on your location and interests \nfor ex: /meetupbot-show Mumbai & Javascript (Dont forget to use ampersand (&).)',
+    //       color: '#764FA5',
+    //     },
+    //   ],
+    };
+    res.json(reply);
+  });
+}
+
+// get all thanks from the database
+export function getThanks(req, res) {
+  Thank.find({}, (error, thanks) => {
+    if (error) { res.json(error); }
+    res.json(thanks);
+  });
+}
+
+// get single thanks based on the id
+export function getThank(req, res) {
+  Thank.findById(req.params.id, (error, thank) => {
+    if (error) { res.json(error); }
+    res.json(thank);
+  });
+}
+
+// update the thanks information based on id
+export function updateThank(req, res) {
+  Thank.findOneAndUpdate({ _id: req.params.id }, req.body, { new: true }, (error, thank) => {
+    if (error) { res.json(error); }
+    res.json(thank);
+  });
+}
+
+// delete the download from the database.
+export function deleteThank(req, res) {
+  Thank.remove({ _id: req.params.id }, (error, thank) => {
+    if (error) { res.json(error); }
+    res.json(thank);
+  });
+}

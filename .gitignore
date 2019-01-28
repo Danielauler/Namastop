@@ -1,0 +1,8 @@
+.vscode
+db
+node_modules
+*DS
+.env*
+*.lock
+*.debug*
+development.json
