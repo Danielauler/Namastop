@@ -13,7 +13,7 @@ import sendMessage from '../api/common/modules/slack/sendMessage';
 
 dotenv.config();
 const app = express();
-const PORT = 3003;
+const PORT = process.env.PORT || 3003;
 
 
 mongoose.Promise = global.Promise;
