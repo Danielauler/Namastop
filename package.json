@@ -5,7 +5,7 @@
   "main": "./src/loader.js",
   "scripts": {
     "dev": "nodemon --exec babel-node ./src/config/server.js",
-    "start": "pm2 start --exec babel-node ./src/config/server.js --name backend-namastop",
+    "start": "pm2 start --watch babel-node ./src/config/server.js --name backend-namastop",
     "prod": "NODE_ENV=production node dist/index.js",
     "lint": "eslint src"
   },
