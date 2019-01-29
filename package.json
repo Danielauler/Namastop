@@ -18,6 +18,8 @@
   "dependencies": {
     "axios": "^0.18.0",
     "babel-polyfill": "^6.26.0",
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
     "body-parser": "^1.18.2",
     "config": "^1.28.1",
     "cron": "^1.6.0",
@@ -27,17 +29,15 @@
     "mkdirp": "^0.5.1",
     "mongoose": "^5.4.7",
     "node-restful": "^0.2.6",
+    "nodemon": "^1.18.9",
+    "pm2": "2.1.5",
     "tracer": "^0.8.11"
   },
   "devDependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-preset-env": "^1.6.1",
     "eslint": "^4.11.0",
     "eslint-config-airbnb-base": "^12.1.0",
     "eslint-plugin-import": "^2.8.0",
-    "morgan": "^1.9.1",
-    "nodemon": "^1.18.9",
-    "pm2": "2.1.5"
+    "morgan": "^1.9.1"
   },
   "engines": {
     "node": "10.x"
