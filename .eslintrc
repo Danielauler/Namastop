@@ -8,7 +8,8 @@
       "node": true
     },
     "rules": {
-      "indent": [2, 2],
+      "indent": [2, "tabs"],
+      "no-tabs": 0,
       "import/no-extraneous-dependencies": [2, {
         "devDependencies": true
       }]

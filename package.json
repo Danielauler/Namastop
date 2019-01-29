@@ -5,25 +5,28 @@
   "main": "./src/loader.js",
   "scripts": {
     "dev": "nodemon --exec babel-node ./src/config/server.js",
-    "build": "rm -rf ./dist/ && babel src --out-dir dist/ --copy-files",
+    "start": "nodemon --exec babel-node ./src/config/server.js --name backend-namastop",
     "prod": "NODE_ENV=production node dist/index.js",
     "lint": "eslint src"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "example",
+    "heroku"
+  ],
+  "author": "Daniel Auler",
   "license": "ISC",
   "dependencies": {
     "axios": "^0.18.0",
     "babel-polyfill": "^6.26.0",
     "body-parser": "^1.18.2",
     "config": "^1.28.1",
-    "csv-write-stream": "^2.0.0",
+    "cron": "^1.6.0",
+    "dotenv": "^6.2.0",
     "express": "^4.16.2",
     "lodash": "^4.17.11",
     "mkdirp": "^0.5.1",
     "mongoose": "^5.4.7",
     "node-restful": "^0.2.6",
-    "request": "^2.83.0",
     "tracer": "^0.8.11"
   },
   "devDependencies": {
@@ -33,6 +36,10 @@
     "eslint-config-airbnb-base": "^12.1.0",
     "eslint-plugin-import": "^2.8.0",
     "morgan": "^1.9.1",
-    "nodemon": "^1.18.9"
+    "nodemon": "^1.18.9",
+    "pm2": "2.1.5"
+  },
+  "engines": {
+    "node": "10.x"
   }
 }

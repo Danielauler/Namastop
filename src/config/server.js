@@ -2,10 +2,15 @@ import bodyParser from 'body-parser';
 import mongoose from 'mongoose';
 import express from 'express';
 import morgan from 'morgan';
+import { CronJob } from 'cron';
+import dotenv from 'dotenv';
 
 import { log } from './utils';
 import routes from './routes';
+import allowCors from './cors';
+import sendMessage from '../api/common/modules/slack/sendMessage';
 
+dotenv.config();
 const app = express();
 const PORT = 3000;
 
@@ -16,6 +21,7 @@ mongoose.connect('mongodb+srv://namastop:Namastop123@namastop-lyi6r.mongodb.net/
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(allowCors);
 
 // Routes
 routes(app);
@@ -45,3 +51,16 @@ app.use(morgan('dev'));
 app.listen(PORT, () => {
   console.log(`you are server is running on ${PORT}`);
 });
+
+// Job que irá enviar a mensagem toda sexta-feira
+const job = new CronJob({
+  cronTime: '30 30 * * * *',
+  onTick: () => {
+    console.log('Start Job');
+    sendMessage();
+  },
+  start: false,
+  timeZone: 'America/Sao_Paulo',
+});
+
+job.start();
