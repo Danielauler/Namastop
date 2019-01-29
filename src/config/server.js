@@ -4,24 +4,25 @@ import express from 'express';
 import morgan from 'morgan';
 import { CronJob } from 'cron';
 import dotenv from 'dotenv';
+import cors from 'cors';
 
 import { log } from './utils';
 import routes from './routes';
-import allowCors from './cors';
+// import allowCors from './cors';
 import sendMessage from '../api/common/modules/slack/sendMessage';
 
 dotenv.config();
 const app = express();
-const PORT = 3000;
+const PORT = 3003;
 
 
 mongoose.Promise = global.Promise;
 mongoose.connect('mongodb+srv://namastop:Namastop123@namastop-lyi6r.mongodb.net/projNovatics');
 
-
+app.use(cors({origin:true,credentials: true}));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(allowCors);
+// app.use(allowCors);
 
 // Routes
 routes(app);

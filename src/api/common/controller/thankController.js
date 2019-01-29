@@ -35,7 +35,7 @@ export function addNewThank(req, res) {
 export function getThanks(req, res) {
   Thank.find({}, (error, thanks) => {
     if (error) { res.json(error); }
-    res.json(thanks);
+    res.status(200).json(thanks);
   });
 }
 
