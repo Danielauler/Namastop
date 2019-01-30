@@ -33,7 +33,8 @@ export function addNewThank(req, res) {
 
 // get all thanks from the database
 export function getThanks(req, res) {
-  Thank.find({}, (error, thanks) => {
+  const { page = 1 } = req.query;
+  Thank.paginate({}, {page, limit: 10},(error, thanks) => {
     if (error) { res.json(error); }
     res.status(200).json(thanks);
   });

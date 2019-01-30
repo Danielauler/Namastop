@@ -1,4 +1,5 @@
 import mongoose from 'mongoose';
+import mongoosePaginate from 'mongoose-paginate';
 
 const { Schema } = mongoose;
 
@@ -10,4 +11,8 @@ const Thanks = new Schema(
     createdAt: { type: Date, default: Date.now },
   });
 
+Thanks.plugin(mongoosePaginate);
+
+
 export default Thanks;
+ 
