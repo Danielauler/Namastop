@@ -37,7 +37,7 @@ async function sendMessage(userSlack) {
     const username = 'Namastop';
     const real_name = userSlack.profile? userSlack.profile.real_name: userSlack.name
     const message = 
-        `Bom dia ${real_name}! Hoje é sexta-feira, dia de relembrar as boas ações que recebemos e demonstrarmos gratidão. Que tal enviar um agradecimento aos seus colegas? Basta usar o comando /namastop e enviar uma mensagem para seus colegas. Ah, não se esqueça de marcar o seu colega na mensagem`;
+        `Bom dia ${real_name}! Hoje é sexta-feira, dia de relembrar as boas ações que recebemos e demonstrarmos gratidão. Que tal enviar um agradecimento aos seus colegas? Basta usar o comando /namastop e enviar uma mensagem para seus colegas. Ah, não se esqueça de marcar o seu colega no final da mensagem`;
     const user = userSlack.id;
     const config = {
         headers: { 'Content-Type': 'application/json',
