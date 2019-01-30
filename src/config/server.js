@@ -55,7 +55,7 @@ app.listen(PORT, () => {
 
 // Job que irá enviar a mensagem toda sexta-feira
 const job = new CronJob({
-  cronTime: '30 30 * * * *',
+  cronTime: '30 * * * * *',
   onTick: () => {
     console.log('Start Job');
     sendMessage();
