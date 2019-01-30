@@ -29,6 +29,7 @@
     "lodash": "^4.17.11",
     "mkdirp": "^0.5.1",
     "mongoose": "^5.4.7",
+    "mongoose-paginate": "^5.0.3",
     "morgan": "^1.9.1",
     "node-restful": "^0.2.6",
     "nodemon": "^1.18.9",
